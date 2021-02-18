@@ -136,7 +136,7 @@
 
   <!-- UPDATE -->
   <update id="updateHistoricBatch" parameterType="org.camunda.bpm.engine.impl.batch.history.HistoricBatchEntity">
-    update ${prefix}ACT_HI_BATCH
+    update ${prefix}ACT_HI_BATCH ${removalTimeUpdateHints}
     <set>
       <if test="endTime != null">
         END_TIME_ = #{endTime, jdbcType=TIMESTAMP},
@@ -149,7 +149,7 @@
   </update>
 
   <update id="updateHistoricBatchRemovalTimeById" parameterType="org.camunda.bpm.engine.impl.batch.history.HistoricBatchEntity">
-    update ${prefix}ACT_HI_BATCH
+    update ${prefix}ACT_HI_BATCH ${removalTimeUpdateHints}
     <set>
         REMOVAL_TIME_ = #{removalTime, jdbcType=TIMESTAMP}
     </set>

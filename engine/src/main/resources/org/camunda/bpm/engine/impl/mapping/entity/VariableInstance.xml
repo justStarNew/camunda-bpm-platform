@@ -501,7 +501,7 @@
 
   <update id="updateByteArraysByRootProcessInstanceId"
           parameterType="java.util.Map">
-      update ${prefix}ACT_GE_BYTEARRAY set
+      update ${prefix}ACT_GE_BYTEARRAY ${removalTimeUpdateHints} set
       REMOVAL_TIME_ = #{removalTime, jdbcType=TIMESTAMP}
 
       where ROOT_PROC_INST_ID_ = #{rootProcessInstanceId, jdbcType=VARCHAR}
@@ -509,7 +509,7 @@
 
   <update id="updateVariableByteArraysByProcessInstanceId"
           parameterType="java.util.Map">
-    update ${prefix}ACT_GE_BYTEARRAY
+    update ${prefix}ACT_GE_BYTEARRAY ${removalTimeUpdateHints}
       set REMOVAL_TIME_ = #{removalTime, jdbcType=TIMESTAMP}
       where ID_ IN (
         <!-- variables -->
@@ -521,7 +521,7 @@
 
   <update id="updateDecisionInputsByteArraysByProcessInstanceId"
           parameterType="java.util.Map">
-    update ${prefix}ACT_GE_BYTEARRAY
+    update ${prefix}ACT_GE_BYTEARRAY ${removalTimeUpdateHints}
       set REMOVAL_TIME_ = #{removalTime, jdbcType=TIMESTAMP}
       where ID_ IN (
         <!-- decision inputs -->
@@ -535,7 +535,7 @@
 
   <update id="updateDecisionOutputsByteArraysByProcessInstanceId"
           parameterType="java.util.Map">
-    update ${prefix}ACT_GE_BYTEARRAY
+    update ${prefix}ACT_GE_BYTEARRAY ${removalTimeUpdateHints}
       set REMOVAL_TIME_ = #{removalTime, jdbcType=TIMESTAMP}
       where ID_ IN (
         <!-- decision outputs -->
@@ -549,7 +549,7 @@
 
   <update id="updateJobLogByteArraysByProcessInstanceId"
           parameterType="java.util.Map">
-    update ${prefix}ACT_GE_BYTEARRAY
+    update ${prefix}ACT_GE_BYTEARRAY ${removalTimeUpdateHints}
       set REMOVAL_TIME_ = #{removalTime, jdbcType=TIMESTAMP}
       where ID_ IN (
         <!-- job log -->
@@ -561,7 +561,7 @@
 
   <update id="updateExternalTaskLogByteArraysByProcessInstanceId"
           parameterType="java.util.Map">
-    update ${prefix}ACT_GE_BYTEARRAY
+    update ${prefix}ACT_GE_BYTEARRAY ${removalTimeUpdateHints}
       set REMOVAL_TIME_ = #{removalTime, jdbcType=TIMESTAMP}
       where ID_ IN (
         <!-- external task log -->
@@ -573,7 +573,7 @@
 
   <update id="updateAttachmentByteArraysByProcessInstanceId"
           parameterType="java.util.Map">
-    update ${prefix}ACT_GE_BYTEARRAY
+    update ${prefix}ACT_GE_BYTEARRAY ${removalTimeUpdateHints}
       set REMOVAL_TIME_ = #{removalTime, jdbcType=TIMESTAMP}
       where ID_ IN (
         <!-- attachment -->
@@ -587,7 +587,7 @@
 
   <update id="updateDecisionInputByteArraysByRootDecisionInstanceId"
           parameterType="java.util.Map">
-    update ${prefix}ACT_GE_BYTEARRAY
+    update ${prefix}ACT_GE_BYTEARRAY ${removalTimeUpdateHints}
       set REMOVAL_TIME_ = #{removalTime, jdbcType=TIMESTAMP}
       where ID_ IN (
         <!-- decision inputs -->
@@ -602,7 +602,7 @@
 
   <update id="updateDecisionOutputByteArraysByRootDecisionInstanceId"
           parameterType="java.util.Map">
-    update ${prefix}ACT_GE_BYTEARRAY
+    update ${prefix}ACT_GE_BYTEARRAY ${removalTimeUpdateHints}
       set REMOVAL_TIME_ = #{removalTime, jdbcType=TIMESTAMP}
       where ID_ IN (
         <!-- decision outputs -->
@@ -617,7 +617,7 @@
 
   <update id="updateDecisionInputByteArraysByDecisionInstanceId"
           parameterType="java.util.Map">
-    update ${prefix}ACT_GE_BYTEARRAY
+    update ${prefix}ACT_GE_BYTEARRAY ${removalTimeUpdateHints}
       set REMOVAL_TIME_ = #{removalTime, jdbcType=TIMESTAMP}
       where ID_ IN (
         <!-- decision inputs -->
@@ -631,7 +631,7 @@
 
   <update id="updateDecisionOutputByteArraysByDecisionInstanceId"
           parameterType="java.util.Map">
-    update ${prefix}ACT_GE_BYTEARRAY
+    update ${prefix}ACT_GE_BYTEARRAY ${removalTimeUpdateHints}
       set REMOVAL_TIME_ = #{removalTime, jdbcType=TIMESTAMP}
       where ID_ IN (
         <!-- decision outputs -->
@@ -645,7 +645,7 @@
 
   <update id="updateByteArraysByBatchId"
           parameterType="java.util.Map">
-    update ${prefix}ACT_GE_BYTEARRAY
+    update ${prefix}ACT_GE_BYTEARRAY ${removalTimeUpdateHints}
       set REMOVAL_TIME_ = #{removalTime, jdbcType=TIMESTAMP}
       where ID_ IN (
         SELECT JOB_EXCEPTION_STACK_ID_
@@ -799,7 +799,7 @@
 <!--  MySQL specific configuration -->
   <update id="updateByteArraysByBatchId_mysql"
           parameterType="java.util.Map">
-    update ${prefix}ACT_GE_BYTEARRAY
+    update ${prefix}ACT_GE_BYTEARRAY ${removalTimeUpdateHints}
       set REMOVAL_TIME_ = #{removalTime, jdbcType=TIMESTAMP}
       where ID_ IN (
         SELECT JOB_EXCEPTION_STACK_ID_

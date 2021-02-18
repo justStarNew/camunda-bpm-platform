@@ -107,7 +107,7 @@
   
   <update id="updateHistoricIncidentsByRootProcessInstanceId"
           parameterType="java.util.Map">
-    update ${prefix}ACT_HI_INCIDENT set
+    update ${prefix}ACT_HI_INCIDENT ${removalTimeUpdateHints} set
     REMOVAL_TIME_ = #{removalTime, jdbcType=TIMESTAMP}
 
     where ROOT_PROC_INST_ID_ = #{rootProcessInstanceId, jdbcType=VARCHAR}
@@ -115,7 +115,7 @@
 
   <update id="updateHistoricIncidentsByRootProcessInstanceId_mysql"
           parameterType="java.util.Map">
-    update ${prefix}ACT_HI_INCIDENT set
+    update ${prefix}ACT_HI_INCIDENT ${removalTimeUpdateHints} set
     REMOVAL_TIME_ = #{removalTime, jdbcType=TIMESTAMP},
     CREATE_TIME_ = CREATE_TIME_
 
@@ -124,14 +124,14 @@
 
   <update id="updateHistoricIncidentsByProcessInstanceId"
           parameterType="java.util.Map">
-    update ${prefix}ACT_HI_INCIDENT
+    update ${prefix}ACT_HI_INCIDENT ${removalTimeUpdateHints}
       set REMOVAL_TIME_ = #{removalTime, jdbcType=TIMESTAMP}
       where PROC_INST_ID_ = #{processInstanceId, jdbcType=VARCHAR}
   </update>
 
   <update id="updateHistoricIncidentsByProcessInstanceId_mysql"
           parameterType="java.util.Map">
-    update ${prefix}ACT_HI_INCIDENT
+    update ${prefix}ACT_HI_INCIDENT ${removalTimeUpdateHints}
       set REMOVAL_TIME_ = #{removalTime, jdbcType=TIMESTAMP},
           CREATE_TIME_ = CREATE_TIME_
       where PROC_INST_ID_ = #{processInstanceId, jdbcType=VARCHAR}
@@ -139,7 +139,7 @@
 
   <update id="updateHistoricIncidentsByBatchId"
           parameterType="java.util.Map">
-    update ${prefix}ACT_HI_INCIDENT set
+    update ${prefix}ACT_HI_INCIDENT ${removalTimeUpdateHints} set
     REMOVAL_TIME_ = #{removalTime, jdbcType=TIMESTAMP}
 
     where ID_ in (SELECT HI.ID_ from ${prefix}ACT_HI_INCIDENT HI

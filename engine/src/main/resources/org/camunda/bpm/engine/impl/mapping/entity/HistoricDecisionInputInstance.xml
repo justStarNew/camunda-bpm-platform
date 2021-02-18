@@ -60,7 +60,7 @@
   <!-- update -->
   <update id="updateHistoricDecisionInputInstancesByRootProcessInstanceId"
           parameterType="java.util.Map">
-      update ${prefix}ACT_HI_DEC_IN set
+      update ${prefix}ACT_HI_DEC_IN ${removalTimeUpdateHints} set
       REMOVAL_TIME_ = #{removalTime, jdbcType=TIMESTAMP}
 
       where ROOT_PROC_INST_ID_ = #{rootProcessInstanceId, jdbcType=VARCHAR}
@@ -68,7 +68,7 @@
 
   <update id="updateHistoricDecisionInputInstancesByProcessInstanceId"
           parameterType="java.util.Map">
-    update ${prefix}ACT_HI_DEC_IN
+    update ${prefix}ACT_HI_DEC_IN ${removalTimeUpdateHints}
       set REMOVAL_TIME_ = #{removalTime, jdbcType=TIMESTAMP}
       where DEC_INST_ID_ IN (
         SELECT ID_
@@ -79,7 +79,7 @@
 
   <update id="updateHistoricDecisionInputInstancesByRootDecisionInstanceId"
           parameterType="java.util.Map">
-      update ${prefix}ACT_HI_DEC_IN set
+      update ${prefix}ACT_HI_DEC_IN ${removalTimeUpdateHints} set
       REMOVAL_TIME_ = #{removalTime, jdbcType=TIMESTAMP}
 
       where DEC_INST_ID_ IN (
@@ -91,7 +91,7 @@
 
   <update id="updateHistoricDecisionInputInstancesByDecisionInstanceId"
           parameterType="java.util.Map">
-      update ${prefix}ACT_HI_DEC_IN set
+      update ${prefix}ACT_HI_DEC_IN ${removalTimeUpdateHints} set
       REMOVAL_TIME_ = #{removalTime, jdbcType=TIMESTAMP}
 
       where DEC_INST_ID_ = #{decisionInstanceId, jdbcType=VARCHAR}

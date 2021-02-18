@@ -68,7 +68,7 @@
 
   <update id="updateAuthorizationsByRootProcessInstanceId"
           parameterType="java.util.Map">
-    update ${prefix}ACT_RU_AUTHORIZATION set
+    update ${prefix}ACT_RU_AUTHORIZATION ${removalTimeUpdateHints} set
     REMOVAL_TIME_ = #{removalTime, jdbcType=TIMESTAMP}
 
     where ROOT_PROC_INST_ID_ = #{rootProcessInstanceId, jdbcType=VARCHAR}
@@ -76,7 +76,7 @@
 
   <update id="updateAuthorizationsByProcessInstanceId"
           parameterType="java.util.Map">
-    update ${prefix}ACT_RU_AUTHORIZATION set
+    update ${prefix}ACT_RU_AUTHORIZATION ${removalTimeUpdateHints} set
     REMOVAL_TIME_ = #{removalTime, jdbcType=TIMESTAMP}
 
     where
